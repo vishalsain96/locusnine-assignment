@@ -1,0 +1,49 @@
+.user-detail-modal{
+  width: 25%;
+  height: 400px;
+  background: white;
+  padding: 45px 55px 45px 55px;
+}
+
+.user-detail-closemodal{
+  float: right;
+  margin-top: -28px;
+  margin-right: -20px;
+  cursor: pointer;
+}
+
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 3px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 1px solid #bbbbbb;
+  background-color: #e7e6e7;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  background-color: #ffa64d;
+  border-color: #ffa64d;
+}
+
+input[type="radio"]:focus {
+  outline: none;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

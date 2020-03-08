@@ -1,0 +1,67 @@
+.userListContainer{
+  background-color: white;
+  padding: 0;
+  max-width: 98%;
+  border-radius: 3px;
+  height: 700px;
+  position: fixed;
+
+}
+.user-table-header{
+  padding: 20px;
+  max-width: inherit;
+}
+
+.user-search-box{
+  display: inline-flex !important;
+  width: 20%;
+  float: right;
+}
+
+.user-add-button{
+  background-color: #ffa64d;
+  color: white;
+  float: right;
+  margin: 0px 18px;
+  border-radius: 3px;
+}
+
+td {
+  padding: 20px;
+}
+
+.backdrop{
+  background-color:rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  }
+
+  .loadingContainer{
+    width: 100%;
+    position: absolute;
+    height: 700px;
+    background-color: #ffffffd1;
+  }
+
+  .loader {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #ffa64d; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,31 @@
+<div class="container user-detail-modal center">
+  <img width="15" class="user-detail-closemodal" alt="Angular Logo" src="../../assets/icons/ico_close.svg"
+    (click)="closeModal()" />
+  <form [formGroup]="form" name="form" id="form">
+    <div class="form-group">
+      <label style="font-size: xx-large;font-weight: 300;" for="exampleInputEmail1">{{title}} User</label>
+      <input type="text" name="name" (keypress)="omit_special_char($event)" class="form-control " id="inputName"
+        aria-describedby="emailHelp" value="{{userDetailFetch.name}}" placeholder="Name*" formControlName="name" #userName>
+        <!-- <span *ngIf="name.$touched && name.$invalid">The name is required.</span> -->
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="userEmail" value="{{userDetailFetch.email}}" placeholder="Email*" #userEmail>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions"
+        [checked]="userDetailFetch.role_type == 'Admin'" id="inlineRadio1" value="Admin" (change)="onItemChange($event.target.value)">
+      <label class="form-check-label" for="inlineRadio1">Admin</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions"
+        [checked]="userDetailFetch.role_type == 'Customer Executive'" id="inlineRadio2" value="Customer Executive" (change)="onItemChange($event.target.value)">
+      <label class="form-check-label" for="inlineRadio2">Customer Executive</label>
+    </div>
+    <div class="form-group">
+      <input type="number" style="margin-top: 10px;" class="form-control" id="mobileNumber"
+        value="{{userDetailFetch.mobile_number}}" placeholder="Mobile Number(Optional)" #userMobileNumber>
+    </div>
+    <button type="submit" (click)="updateUser(userName.value,userEmail.value,userMobileNumber.value)" class="btn btn-primary" style="width: 100%; background-color: #ffa64d; border: none; border-radius: 3px;
+    height: 50px;">{{title}} User</button>
+  </form>
+</div>

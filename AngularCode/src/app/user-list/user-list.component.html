@@ -1,0 +1,85 @@
+
+<div class="container userListContainer" [ngStyle]="{'overflow-y': overflow}">
+    <div *ngIf = "isLoading" class="loadingContainer">
+        <div class="loader"></div>
+      </div>
+  <div class="container user-table-header" >
+    <img width="30" style="fill: #ffa64d; margin:0px 10px 0px 15px" alt="Angular Logo"
+      src="../assets/icons/ico_users.svg" />
+    <span style="font-size: large">Users</span>
+
+    <button type="button" class="btn btn-default user-add-button" (click)="openModal(addUserData)">
+      <img width="15" alt="Angular Logo" src="../../assets/icons/ico_add.svg" /> Add User
+    </button>
+
+    <div class="input-group md-form form-sm form-2 pl-0 user-search-box">
+      <input class="form-control my-0 py-1 lime-border" type="text" (keyup)="searchUsers($event.target.value)"  placeholder="Search" aria-label="Search">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-text1">
+          <img width="20" style="fill: orange; margin:0px 10px 0px 15px" alt="Angular Logo"
+            src="../../assets/icons/ico_search.svg" />
+        </span>
+      </div>
+    </div>
+
+  </div>
+  <table  [ngStyle]="{'overflow-y': overflow}" class="table table-striped userTable">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col"><div (click)="head == 'NAME' && sortNames(isAscending)">{{head}}<img width="10" *ngIf=" head == 'NAME'" style="fill: orange; cursor: pointer; margin-top: -3px;"
+          alt="Angular Logo" [ngStyle]="{'transform':transform}" src="../../assets/icons/ico_sorting.svg"  /></div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of userData">
+        <td>{{el.name}}</td>
+        <td>{{el.email}}</td>
+        <td>{{el.role_type}}</td>
+        <td>
+          <img width="10" *ngIf="el.status == 'Active'" style="fill: orange; cursor: pointer; margin-top: -3px;"
+            alt="Angular Logo" src="../../assets/icons/ico_active.svg" (click)="openModal(el)" />
+          <img width="10" *ngIf="el.status == 'Inactive'" style="fill: orange; cursor: pointer; margin-top: -3px;"
+            alt="Angular Logo" src="../../assets/icons/ico_inactive.svg" (click)="openModal(el)" />
+          <img width="10" *ngIf="el.status == 'Pending'" style="fill: orange; cursor: pointer; margin-top: -3px;"
+            alt="Angular Logo" src="../../assets/icons/ico_pending.svg" (click)="openModal(el)" />
+          {{el.status}}</td>
+        <td>
+          <img width="20" style="fill: orange; cursor: pointer" alt="Angular Logo" src="../../assets/icons/ico_edit.svg"
+            (click)="openModal(el)" />
+          <img width="25" style="fill: orange; cursor: pointer ; margin-left: 15px " alt="Angular Logo"
+            src="../../assets/icons/ico_delete.svg" (click)="deleteUser(el)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--
+<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>
+          <h4 class="modal-title">Are you sure?</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete these records? This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<div class="modal update-user-modal" [ngStyle]="{'display':display}">
+  <app-update-user-details [userDetails]="userDetails" (close)="onCloseHandled()"
+  (isLoading)="isLoading" (overflow)="overflow" (reloadList)="getUsers()" (clearInput)="clearAddModel()"></app-update-user-details>
+</div>
