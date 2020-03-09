@@ -19,6 +19,12 @@ Running the node server.
 	2.	After the packages are installed successfully run “npm start” which will start the node server and api will be accessible.
 	3.	This will create the table and will insert one dummy data row for you.
 	4.	We are done here, our node server is running.
+	
+[NOTE]: if you get any error like (Client does not support authentication protocol requested by server; consider upgrading MySQL client)
+	please type the following command in you mySql workbench :- 
+	1. ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+	2. flush privileges;
 
 Running the forntend server.
 
