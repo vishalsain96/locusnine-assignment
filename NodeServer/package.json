@@ -9,15 +9,29 @@
   },
   "author": "vishal",
   "license": "ISC",
-  "dependencies": {
+"dependencies": {
+
     "@babel/core": "^7.8.6",
+
     "@babel/polyfill": "^7.8.3",
+
     "@babel/preset-env": "^7.8.6",
+
     "@babel/register": "^7.8.6",
+
     "babel": "^6.23.0",
+
     "babel-polyfill": "^6.26.0",
+
     "body-parser": "^1.19.0",
+
     "cors": "^2.8.5",
+
+    "express": "^4.17.1",
+
+    "mysql": "^2.18.1",
+
     "nodemon": "^2.0.2"
+
   }
 }
